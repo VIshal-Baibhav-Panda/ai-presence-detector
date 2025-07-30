@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AI Project Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="floating-shapes"></div>
+
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="medal-badge">#1</div>
+      <a href="index.html" class="active">🏠 Dashboard</a>
+      <a href="presence.html">👤 Human Detection</a>
+      <a href="how-it-works.html">💡 How It Works</a>
+      <a href="about.html">🧑‍💻 About Creator</a>
+      <a href="index.html#settings-modal">⚙️ Settings</a>
+      <a style="background: linear-gradient(135deg, #00aaff, #ff007f);
+               color: #fff !important;
+               font-weight: bold;
+               padding: 8px 16px;
+               border-radius: 20px;
+               white-space: nowrap;">
+        🏆 #1 Hackathon Winner
+      </a>
+    </div>
+  </nav>
+
+  <div class="dashboard-layout-wrapper">
+    <aside class="left-sidebar">
+      <h3>Quick Status</h3>
+      <div id="sidebar-live-status">System Initialized.</div>
+      
+      <div class="sidebar-info-block">
+        <h4>Detection Summary</h4>
+        <p id="total-events-logged">Total events logged: 0</p>
+      </div>
+      
+      <div class="sidebar-info-block">
+        <h4>Camera Status</h4>
+        <p id="camera-connection-status">Status: Not Active (Check Detector)</p>
+      </div>
+
+      <a href="presence.html" class="sidebar-btn">🚀 Go to Detector</a>
+    </aside>
+
+    <main class="main-content-area">
+      <h1>Welcome to the AI Project Dashboard</h1>
+      <div class="card-grid">
+        <a href="presence.html" class="card">
+          <span class="icon">👁️</span>
+          <h2>Human Presence Detection</h2>
+          <p>Utilizes AI to detect human presence in real-time using webcam feed.</p>
+        </a>
+        <a href="how-it-works.html" class="card">
+          <span class="icon">💡</span>
+          <h2>How It Works</h2>
+          <p>Understand the technology and process behind the Human Presence Detector.</p>
+        </a>
+        <a href="about.html" class="card">
+          <span class="icon">👨‍💻</span>
+          <h2>About the Creator</h2>
+          <p>Learn more about the mind behind this project and the technologies used.</p>
+        </a>
+      </div>
+    </main>
+
+    <aside class="right-sidebar">
+      <h3>About this Project</h3>
+      <p>
+        Your intelligent assistant for real-time human presence detection. Secure your spaces effectively and monitor activity with ease.
+      </p>
+      
+      <div class="sidebar-info-block">
+        <h4>Key Features</h4>
+        <ul class="feature-list">
+          <li>Real-time AI detection</li>
+          <li>Webcam integration</li>
+          <li>Detection event logging</li>
+          <li>Sound Alerts</li>
+          <li>Auto + Manual Capture</li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-info-block">
+        <h4>Built With</h4>
+        <ul class="tech-list">
+          <li>TensorFlow.js</li>
+          <li>HTML5, CSS3, JavaScript</li>
+          <li>WebRTC API</li>
+        </ul>
+      </div>
+
+      <div class="social-links"> 
+        <a href="https://github.com/yourprofile" target="_blank" class="social-icon" style="font-size: 2em;">GitHub</a>
+        <a href="https://www.linkedin.com/in/vishal-baibhav-panda/" target="_blank" class="social-icon" style="font-size: 2em;">LinkedIn</a>
+      </div>
+      <p style="font-size: 0.7em; opacity: 0.7;">
+        Made with passion and AI by Vishal Baibhav Panda.
+      </p>
+    </aside>
+  </div>
+  
+  <button class="floating-btn" id="viewLogsBtn">View Log History</button>
+
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="btn-close">&times;</span>
+      <h3>App Settings</h3>
+      <div class="settings-content">
+        <div class="settings-item" style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <label>Version</label>
+            <span>1.1.0 (Themed)</span>
+        </div>
+        <div class="settings-item" style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <label>Last Updated</label>
+            <span>2025-07-30</span>
+        </div>
+        <div class="theme-switcher">
+            <label>Appearance</label>
+            <button id="theme-toggle-btn">Switch to Light Mode</button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="exportSettingsBtn">Export Logs</button>
+        <button id="clearSettingsBtn" class="btn-danger">Clear Logs</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="logHistoryModal" class="modal">
+    <div class="modal-content">
+      <span class="btn-close">&times;</span>
+      <h3>Detection Log History</h3>
+      <div id="logDisplay" class="log-display"></div>
+      <div class="modal-actions">
+        <button id="exportLogsBtn">Export Logs</button>
+        <button id="clearLogsBtn" class="btn-danger">Clear Logs</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="copyright">
+    @2025 Vishal Baibhav Panda | Co-Powered by GenAI
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.14.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  <script src="script.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Human Presence Detector</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.14.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="floating-shapes"></div>
+
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="medal-badge">#1</div>
+      <a href="index.html">🏠 Dashboard</a>
+      <a href="presence.html" class="active">👤 Human Detection</a>
+      <a href="how-it-works.html">💡 How It Works</a> <a href="about.html">🧑‍💻 About Creator</a>
+      <a href="index.html#settings-modal">⚙️ Settings</a>
+      <a style="background: linear-gradient(135deg, #00aaff, #ff007f);
+         color: #fff !important;
+         font-weight: bold;
+         padding: 8px 16px;
+         border-radius: 20px;
+         white-space: nowrap;">
+        🏆 #1 Hackathon Winner
+      </a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="detection-area">
+      <div id="webcam-container"></div>
+      <div id="label-container"></div>
+      <div class="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+      <div id="loading" class="loading-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="startBtn" class="btn">Start Detection</button>
+      <button id="stopBtn" class="btn">Stop Detection</button>
+      <button id="captureBtn" class="btn">Capture Image</button>
+    </div>
+    <div class="log-console-container">
+      <h3>Live Status:</h3>
+      <p id="logConsole" class="log-message"></p>
+    </div>
+  </main>
+
+  <button class="floating-btn" id="viewLogsBtn">View Log History</button>
+
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="btn-close">&times;</span>
+      <h3>App Settings</h3>
+      <div class="settings-content">
+        <div class="settings-item" style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <label>Version</label>
+            <span>1.1.0 (Themed)</span>
+        </div>
+        <div class="settings-item" style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <label>Last Updated</label>
+            <span>2025-07-30</span>
+        </div>
+        <div class="theme-switcher">
+            <label>Appearance</label>
+            <button id="theme-toggle-btn">Switch to Light Mode</button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="exportSettingsBtn">Export Logs</button>
+        <button id="clearSettingsBtn" class="btn-danger">Clear Logs</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="logHistoryModal" class="modal">
+    <div class="modal-content">
+      <span class="btn-close">&times;</span>
+      <h3>Detection Log History</h3>
+      <div id="logDisplay" class="log-display"></div>
+      <div class="modal-actions">
+        <button id="exportLogsBtn">Export Logs</button>
+        <button id="clearLogsBtn" class="btn-danger">Clear Logs</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="copyright">
+    @2025 Vishal Baibhav Panda | Co-Powered by GenAI
+  </footer>
+  
+  <script src="script.min.js"></script>
+</body>
+</html>

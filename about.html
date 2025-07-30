@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About the Creator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="floating-shapes"></div>
+
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="medal-badge">#1</div>
+      <a href="index.html">🏠 Dashboard</a>
+      <a href="presence.html">👤 Human Detection</a>
+      <a href="how-it-works.html">💡 How It Works</a> <a href="about.html" class="active">🧑‍💻 About Creator</a>
+      <a href="index.html#settings-modal">⚙️ Settings</a>
+      <a style="background: linear-gradient(135deg, #00aaff, #ff007f);
+         color: #fff !important;
+         font-weight: bold;
+         padding: 8px 16px;
+         border-radius: 20px;
+         white-space: nowrap;">
+        🏆 #1 Hackathon Winner
+      </a>
+    </div>
+  </nav>
+  
+  <div class="main-about-content">
+    <div class="about-container">
+      <h1>About Me & The Project</h1>
+      <div class="creator-image-wrapper">
+        <img src="my_picture.png" alt="Picture of the Creator" class="creator-image">
+      </div>
+      <p>
+        Hello! I'm Vishal, the creator of this Human Presence Detector project, hailing from New Delhi. This endeavor began as a significant part of a hackathon competition. As the Team Captain, I spearheaded the entire development process, leading the efforts to bring this project to fruition.
+      </p>
+      <p>
+        This project is designed to detect the presence of human beings in an area. While currently a demonstration, its potential applications extend to serious security scenarios, offering a simple yet effective solution for presence detection.
+      </p>
+      <h2>Technologies Used:</h2>
+      <ul>
+        <li><span><strong>TensorFlow.js:</strong> For running machine learning models directly in the browser.</span></li>
+        <li><span><strong>Teachable Machine:</strong> For easily training custom image classification models.</span></li>
+        <li><span><strong>Generative AI Integration:</strong> Leveraged AI to implement complex functionalities and enhance the web development process.</span></li>
+        <li><span><strong>HTML5, CSS3, JavaScript:</strong> For the web application's structure, styling, and interactivity.</span></li>
+        <li><span><strong>WebRTC API:</strong> For accessing the user's webcam feed.</span></li>
+      </ul>
+    </div>
+
+    <div class="certificate-container">
+      <h2>Hackathon Achievement</h2>
+      <p>I'm proud to share that this project earned a recognition in a recent hackathon! This award validates the effectiveness and innovation of the project.</p>
+      <img src="my_certificate.png" alt="Hackathon Winning Certificate" class="certificate-image">
+      
+      <h2 style="margin-top: 30px;">Participation Recognition</h2>
+      <p>My dedication was further acknowledged with a participation certificate, representing my commitment and effort throughout the competition.</p>
+      <img src="my_participation_certificate.png" alt="Hackathon Participation Certificate" class="certificate-image">
+    </div>
+  </div>
+
+  <button class="floating-btn" id="viewLogsBtn">View Log History</button>
+
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="btn-close">&times;</span>
+      <h3>App Settings</h3>
+      <div class="settings-content">
+        <div class="settings-item" style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <label>Version</label>
+            <span>1.1.0 (Themed)</span>
+        </div>
+        <div class="settings-item" style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <label>Last Updated</label>
+            <span>2025-07-30</span>
+        </div>
+        <div class="theme-switcher">
+            <label>Appearance</label>
+            <button id="theme-toggle-btn">Switch to Light Mode</button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="exportSettingsBtn">Export Logs</button>
+        <button id="clearSettingsBtn" class="btn-danger">Clear Logs</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="logHistoryModal" class="modal">
+    <div class="modal-content">
+      <span class="btn-close">&times;</span>
+      <h3>Detection Log History</h3>
+      <div id="logDisplay" class="log-display"></div>
+      <div class="modal-actions">
+        <button id="exportLogsBtn">Export Logs</button>
+        <button id="clearLogsBtn" class="btn-danger">Clear Logs</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="copyright">
+    @2025 Vishal Baibhav Panda | Co-Powered by GenAI
+  </footer>
+  
+  <script src="script.min.js"></script>
+</body>
+</html>

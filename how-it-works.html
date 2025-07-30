@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How It Works - Human Presence Detector</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="how-it-works-page">
+
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="medal-badge">#1</div>
+      <a href="index.html">🏠 Dashboard</a>
+      <a href="presence.html">👤 Human Detection</a>
+      <a href="how-it-works.html" class="active">💡 How It Works</a>
+      <a href="about.html">🧑‍💻 About Creator</a>
+      <a href="index.html#settings-modal">⚙️ Settings</a>
+      <a style="background: linear-gradient(135deg, #00aaff, #ff007f);
+         color: #fff !important;
+         font-weight: bold;
+         padding: 8px 16px;
+         border-radius: 20px;
+         white-space: nowrap;">
+        🏆 #1 Hackathon Winner
+      </a>
+    </div>
+  </nav>
+
+  <main class="how-it-works-container">
+    <h1>How the Human Presence Detector Works</h1>
+
+    <p>
+      This project leverages the power of Machine Learning right in your browser to detect human presence in real-time using your webcam feed. Here's a breakdown of the core components and the process:
+    </p>
+
+    <h3>1. Model Training with Teachable Machine</h3>
+    <div class="info-card">
+      <div class="info-label">Pre-trained Model:</div>
+      <div class="info-text">
+        The heart of the detection system is a pre-trained machine learning model created using 
+        <a href="https://teachablemachine.withgoogle.com/" target="_blank">Google's Teachable Machine</a>.
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Custom Dataset:</div>
+      <div class="info-text">
+        The model was trained on a custom dataset consisting of two classes: <em>“Person Present”</em> and <em>“No Person”</em>.
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Export for Web:</div>
+      <div class="info-text">
+        The model is exported in a format compatible with TensorFlow.js.
+      </div>
+    </div>
+
+    <h3>2. Real-time Browser Integration</h3>
+    <div class="info-card">
+      <div class="info-label">Webcam Access:</div>
+      <div class="info-text">
+        The application uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API" target="_blank">WebRTC API</a> to access your device’s camera.
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Frame Analysis:</div>
+      <div class="info-text">
+        Each webcam frame is processed by the model to detect the presence of a human.
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Live Status Update:</div>
+      <div class="info-text">
+        The detection status on-screen is updated in real time based on model predictions.
+      </div>
+    </div>
+
+    <h3>3. Privacy and Local Processing</h3>
+    <div class="info-card">
+      <div class="info-text">
+        All detection runs locally in your browser — your webcam feed is never sent to a server, ensuring full privacy and security.
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <img src="diagram.png" loading="lazy" alt="How It Works Diagram" class="diagram" style="height: 500px;">
+      <p style="font-size: 0.8em; opacity: 0.7; margin-top: 10px;">
+        A conceptual diagram showing the flow of the detection process.
+      </p>
+    </div>
+  </main>
+
+  <button class="floating-btn" id="viewLogsBtn">View Log History</button>
+
+    <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="btn-close">&times;</span>
+      <h3>App Settings</h3>
+      <div class="settings-content">
+        <div class="settings-item" style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <label>Version</label>
+            <span>1.1.0 (Themed)</span>
+        </div>
+        <div class="settings-item" style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <label>Last Updated</label>
+            <span>2025-07-30</span>
+        </div>
+        <div class="theme-switcher">
+            <label>Appearance</label>
+            <button id="theme-toggle-btn">Switch to Light Mode</button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="exportSettingsBtn">Export Logs</button>
+        <button id="clearSettingsBtn" class="btn-danger">Clear Logs</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="logHistoryModal" class="modal">
+    <div class="modal-content">
+      <span class="btn-close">&times;</span>
+      <h3>Detection Log History</h3>
+      <div id="logDisplay" class="log-display"></div>
+      <div class="modal-actions">
+        <button id="exportLogsBtn">Export Logs</button>
+        <button id="clearLogsBtn" class="btn-danger">Clear Logs</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="copyright">
+    @2025 Vishal Baibhav Panda | Co-Powered by GenAI
+  </footer>
+
+  <script src="script.min.js"></script>
+</body>
+</html>
